@@ -1,0 +1,38 @@
+[
+  {
+    "name": "assetCollection",
+    "policy": "OR('settlemintTest-b7b6-MSP.member', 'settlemintOrg2-5058-MSP.member')",
+    "requiredPeerCount": 1,
+    "maxPeerCount": 1,
+    "blockToLive": 1000000,
+    "memberOnlyRead": true,
+    "memberOnlyWrite": true,
+    "endorsementPolicy": {
+      "signaturePolicy": "OR('settlemintTest-b7b6-MSP.member','settlemintOrg2-5058-MSP.member')"
+    }
+  },
+  {
+    "name": "settlemintTest-b7b6-MSPPrivateCollection",
+    "policy": "OR('settlemintTest-b7b6-MSP.member')",
+    "requiredPeerCount": 0,
+    "maxPeerCount": 1,
+    "blockToLive": 3,
+    "memberOnlyRead": true,
+    "memberOnlyWrite": false,
+    "endorsementPolicy": {
+      "signaturePolicy": "OR('settlemintTest-b7b6-MSP.member')"
+    }
+  },
+  {
+    "name": "settlemintOrg2-5058-MSPPrivateCollection",
+    "policy": "OR('settlemintOrg2-5058-MSP.member')",
+    "requiredPeerCount": 0,
+    "maxPeerCount": 1,
+    "blockToLive": 3,
+    "memberOnlyRead": true,
+    "memberOnlyWrite": false,
+    "endorsementPolicy": {
+      "signaturePolicy": "OR('settlemintOrg2-5058-MSP.member')"
+    }
+  }
+]
