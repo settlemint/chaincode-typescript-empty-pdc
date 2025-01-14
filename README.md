@@ -19,19 +19,19 @@ There are two ways to create an asset:
 
 ```bash
 export ASSET_PROPERTIES=$(echo -n "{\"objectType\":\"ValuableAsset\",\"assetID\":\"asset1\",\"color\":\"green\",\"size\":20,\"appraisedValue\":100}" | base64 | tr -d \\n)
-./lib/btp-chaincode-lifecycle/chaincode.sh invoke 'CreateAsset' --transient "{ \"asset_properties\": \"${ASSET_PROPERTIES}\"}"
+BTP_SERVICE_TOKEN=<your-access-token> ./lib/btp-chaincode-lifecycle/chaincode.sh invoke 'CreateAsset' --transient "{ \"asset_properties\": \"${ASSET_PROPERTIES}\"}"
 ```
 
 Or let the api do the base64 encoding for you:
 
 ```bash
-./lib/btp-chaincode-lifecycle/chaincode.sh invoke 'CreateAsset' --transient '{ "asset_properties": { "objectType": "ValuableAsset", "assetID": "asset1", "color": "green", "size": "20", "appraisedValue": "100" }}'
+BTP_SERVICE_TOKEN=<your-access-token> ./lib/btp-chaincode-lifecycle/chaincode.sh invoke 'CreateAsset' --transient '{ "asset_properties": { "objectType": "ValuableAsset", "assetID": "asset1", "color": "green", "size": "20", "appraisedValue": "100" }}'
 ```
 
 Query the newly created asset:
 
 ```bash
-./lib/btp-chaincode-lifecycle/chaincode.sh query 'ReadAsset' --arguments 'asset1'
+BTP_SERVICE_TOKEN=<your-access-token> ./lib/btp-chaincode-lifecycle/chaincode.sh query 'ReadAsset' --arguments 'asset1'
 ```
 
-TODO: Update documentation
+Here your access token is an application access token or a personal access token scoped to the nodes you wish to interact with.
